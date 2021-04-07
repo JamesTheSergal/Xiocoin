@@ -3,8 +3,6 @@ package coin;
 import java.security.NoSuchAlgorithmException;
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.HashMap;
-
 import org.json.simple.JSONObject;
 
 public class Block {
