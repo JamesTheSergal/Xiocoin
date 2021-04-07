@@ -1,11 +1,6 @@
 package coin;
 import java.util.ArrayList;
-import java.util.List;
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import org.json.simple.JSONObject;
 import java.time.*;
 
 
@@ -53,7 +48,6 @@ public class Blockchain{
 			while(pendingTransactions.size() > 2) {
 				transactionSlice.clear();
 				
-				int end = 0;
 				for(int j = 0; j < blockSize; j++) {
 					Transaction gotTrans = pendingTransactions.get(0);
 					transactionSlice.add(gotTrans);
