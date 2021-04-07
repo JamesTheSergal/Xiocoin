@@ -22,7 +22,6 @@ public class Transaction {
 	}
 	
 	public String calculateHash() throws NoSuchAlgorithmException {
-		String hashTransactions = "";	
 		String hashString = sender + receiver + String.valueOf(amt) + time;
 		JSONObject obj = new JSONObject();
 		obj.put(time, hashString);
