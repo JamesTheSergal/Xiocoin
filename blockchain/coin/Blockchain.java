@@ -1,6 +1,12 @@
 package coin;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.time.*;
 
 
@@ -16,6 +22,45 @@ public class Blockchain{
 		this.pendingTransactions = new ArrayList<Transaction>();
 		this.difficulty = 4;
 		this.minerReward = 10;
+	}
+	
+	public KeyPair generateKeys() throws NoSuchAlgorithmException, IOException {
+		
+		// TODO: Load in keys from file
+		
+		/*
+		 * Here, we will make a RSA key pair which is used for signing of transactions.
+		 * We will instantiate the key generator with RSA and then write out the keys
+		 * to a file locally so that we can get to them.
+		 */
+		KeyPairGenerator gen = KeyPairGenerator.getInstance("RSA"); // Make the generator
+		
+		// Add parameters and generate.
+		gen.initialize(2048, new SecureRandom());
+		KeyPair pair = gen.generateKeyPair();
+		
+		// Basic saving things.
+		File privateKeyFile = new File("privateKey.pem");
+		if(privateKeyFile.createNewFile()) {
+			FileWriter privateKeyWriter = new FileWriter("privateKey.pem");
+			privateKeyWriter.write(pair.getPrivate().toString());
+			System.out.println("Generated new private key...");
+		} else {
+			System.out.println("Private Key file was found...");
+		}
+		
+		
+		File publicKeyFile = new File("privateKey.pem");
+		if(publicKeyFile.createNewFile()) {
+			FileWriter publicKeyWriter = new FileWriter("privateKey.pem");
+			publicKeyWriter.write(pair.getPrivate().toString());
+			System.out.println("Generated new private key...");
+		} else {
+			System.out.println("Private Key file was found...");
+		}
+		
+		return pair;
+		
 	}
 	
 	public Block getLastBlock() {

@@ -1,4 +1,6 @@
 package coin;
+import java.io.IOException;
+import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -10,7 +12,17 @@ public class test {
 		Blockchain blockchain = new Blockchain();
 		Transaction transaction = null;
 		
+		try {
+			KeyPair keys = blockchain.generateKeys();
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		/*
 		transaction = new Transaction("Stephen Hawking", "Ruben Rod", 50);
 		blockchain.pendingTransactions.add(transaction);
 		
@@ -57,6 +69,7 @@ public class test {
 		blockchain.pendingTransactions.add(transaction);
 		
 		blockchain.minePendingTransactions("Ruben Rod");
+		*/
 		
 		// Block test
 		/*
