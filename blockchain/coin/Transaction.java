@@ -1,5 +1,6 @@
 package coin;
 
+import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 import java.time.Instant;
 
@@ -19,6 +20,10 @@ public class Transaction {
 		this.amt = amt;
 		this.time = Instant.now().toString();
 		this.hash = calculateHash();
+	}
+	
+	public boolean signTransaction(KeyPair keys) {
+		return false;
 	}
 	
 	public String calculateHash() throws NoSuchAlgorithmException {
