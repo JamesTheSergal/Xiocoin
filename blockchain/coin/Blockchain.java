@@ -12,7 +12,7 @@ import java.time.*;
 
 public class Blockchain{
 	
-	public ArrayList<Block> chain;
+	public ArrayList<Block> chain;	
 	public ArrayList<Transaction> pendingTransactions;
 	public int difficulty, minerReward;
 	public int blockSize = 10;

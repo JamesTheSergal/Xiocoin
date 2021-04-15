@@ -1,5 +1,10 @@
 package coin;
 import java.io.IOException;
+
+/**
+ * This is the main file for running the blockchain at the moment.
+ * All transaction tests can be performed here.
+ */
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 import java.time.Instant;
